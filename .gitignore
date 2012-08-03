@@ -1,4 +1,5 @@
-SOURCES/*.tar
-SOURCES/*.gz
-SOURCES/*.xz
+!SOURCES/*.patch
+BUILD*/
+RPMS/*
+SOURCES/*
 results/*
