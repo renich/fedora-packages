@@ -82,3 +82,6 @@ make install DESTDIR=%{buildroot}
 
 
 %changelog
+* Fri Aug 03 2012 Renich Bon Ciric <renich@woralelandia.com> - v1.1.0-1
+- first draft; non working yet.
+
