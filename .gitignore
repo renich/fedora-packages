@@ -1,5 +1,6 @@
 !SOURCES/*.patch
 BUILD*/
+SRPMS/*
 RPMS/*
 SOURCES/*
 results/*
