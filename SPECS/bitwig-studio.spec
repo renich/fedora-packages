@@ -57,5 +57,8 @@ dpkg -x %{_sourcedir}/%{name}-%{version}.deb %{buildroot}
 
 
 %changelog
+* Wed Apr 02 2014 Renich Bon Ciric - 1.0.5-1
+- Updated to version 1.0.5
+
 * Tue Apr 01 2014 Renich Bon Ciric <renich@woralelandia.com> - 1.0.4-1
 - First packaging
