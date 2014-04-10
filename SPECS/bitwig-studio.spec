@@ -1,5 +1,5 @@
 Name: 			bitwig-studio
-Version: 		1.0.5
+Version: 		1.0.6
 Release: 		1%{?dist}
 Summary: 		A dynamic software solution for music creation and performance to realize all of your musical ideas in every stage of production.
 
@@ -57,6 +57,9 @@ dpkg -x %{_sourcedir}/%{name}-%{version}.deb %{buildroot}
 
 
 %changelog
+* Thu Apr 10 2014 Renich Bon Ciric <renich@woralelandia.com> - 1.0.6-1
+- Updated to version 1.0.6
+
 * Wed Apr 02 2014 Renich Bon Ciric - 1.0.5-1
 - Updated to version 1.0.5
 
