@@ -1,0 +1,16 @@
+# Get in there and put the spec file in SPEC (one line)
+curl -k https://downloads.woralelandia.com/fedora/20/bitwig-studio/bitwig-studio.spec > ~/rpmbuild/SPECS/bitwig-studio.spec
+
+# Go to the SOURCES dir and get the sources
+cd ~/rpmbuild/SOURCES
+spectool -g ~/rpmbuild/SPECS/bitwig-studio.spec
+
+# Ready your SRPM
+cd ~/rpmbuild
+rpmbuild -bs SPECS/bitwig-studio.spec
+
+# Start building (one line)
+mock --resultdir results/ --rebuild SRPMS/bitwig-studio-1.0.5-1.fc20.src.rpm
+
+# Install your RPM
+sudo yum install ~/rpmbuild/results/bitwig-studio-1.0.5-1.fc20.x86_64.rpm
