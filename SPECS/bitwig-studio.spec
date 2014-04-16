@@ -1,5 +1,5 @@
 Name: 			bitwig-studio
-Version: 		1.0.6
+Version: 		1.0.7
 Release: 		1%{?dist}
 Summary: 		A dynamic software solution for music creation and performance to realize all of your musical ideas in every stage of production.
 

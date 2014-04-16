@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # vars
-version='1.0.6'
+version='1.0.7'
 revision='1'
 
 # Get in there and put the spec file in SPEC (one line)
@@ -9,14 +9,14 @@ revision='1'
 
 # Go to the SOURCES dir and get the sources
 cd ~/rpmbuild/SOURCES
-spectool -g ~/rpmbuild/SPECS/bitwig-studio.spec
+spectool -g ~/rpmbuild/SPECS/bitwig-studio.spec || exit 1
 
 # Ready your SRPM
 cd ~/rpmbuild
-rpmbuild -bs SPECS/bitwig-studio.spec
+rpmbuild -bs SPECS/bitwig-studio.spec || exit 2
 
 # Start building (one line)
-mock --resultdir results/ --rebuild SRPMS/bitwig-studio-${version}-${revision}.fc20.src.rpm
+mock --resultdir results/ --rebuild SRPMS/bitwig-studio-${version}-${revision}.fc20.src.rpm || exit 3
 
 # Install your RPM
 sudo yum install ~/rpmbuild/results/bitwig-studio-${version}-${revision}.fc20.x86_64.rpm
