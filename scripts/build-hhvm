@@ -1,23 +1,22 @@
 #!/usr/bin/env bash
 
 # vars
+project='hhvm'
 version=$( grep 'Version:' SPECS/hhvm.spec | egrep -o '([[:digit:]].+)' )
 release=$( grep 'Release:' SPECS/hhvm.spec | egrep -o '([[:digit:]]+)' )
 
 cd ~/rpmbuild
 
-# obtener fuentes (solo una vez; o cuando cambiemos de versión)
-# cd SOURCES
-# spectool -g ../SPECS/hhvm.spec
-# cd ..
+# get sources
+# note: spectool is smart and it will skip successful downloads.
+cd SOURCES
+spectool -g ../SPECS/hhvm.spec
+cd ..
 
-# generar SRPM
+# generate SRPM
 rpmbuild -bs SPECS/hhvm.spec
 
-# probar el build
+# try to build
 mock --resultdir results/ --rebuild SRPMS/hhvm-${version}-${release}.fc20.src.rpm
-
-# alternativamente, corre los dos en una línea
-# rpmbuild -bs SPECS/hhvm.spec; mock --resultdir results/ --rebuild SRPMS/hhvm-${version}-${release}.fc20.src.rpm
 
 exit 0
