@@ -25,15 +25,15 @@ BuildRequires:  libcap-devel%{?_isa}
 BuildRequires:  libcurl-devel%{?_isa}
 BuildRequires:  libdwarf-devel%{?_isa}
 BuildRequires:  libedit-devel%{?_isa}
-BuildRequires:  libevent-devel%{?_isa}
+BuildRequires:  libevent%{?_isa}
 BuildRequires:  libicu-devel%{?_isa}
 BuildRequires:  libmcrypt-devel%{?_isa}
 BuildRequires:  libmemcached-devel%{?_isa}
 BuildRequires:  libtool%{?_isa}
 BuildRequires:  libxml2-devel%{?_isa}
 BuildRequires:  libxslt-devel%{?_isa}
+BuildRequires:  mariadb-devel%{?_isa}
 BuildRequires:  memcached%{?_isa}
-BuildRequires:  mysql-devel%{?_isa}
 BuildRequires:  ocaml%{?_isa}
 BuildRequires:  oniguruma-devel%{?_isa}
 BuildRequires:  openldap-devel%{?_isa}
@@ -41,6 +41,7 @@ BuildRequires:  pam-devel%{?_isa}
 BuildRequires:  pcre-devel%{?_isa}
 BuildRequires:  pigz%{?_isa}
 BuildRequires:  tbb-devel%{?_isa}
+BuildRequires:  uw-imap-devel%{?_isa}
 BuildRequires:  wget%{?_isa}
 Requires:       glog%{?_isa}
 
