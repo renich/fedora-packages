@@ -25,7 +25,7 @@ BuildRequires:  libcap-devel%{?_isa}
 BuildRequires:  libcurl-devel%{?_isa}
 BuildRequires:  libdwarf-devel%{?_isa}
 BuildRequires:  libedit-devel%{?_isa}
-BuildRequires:  libevent%{?_isa}
+BuildRequires:  libevent-devel%{?_isa}
 BuildRequires:  libicu-devel%{?_isa}
 BuildRequires:  libmcrypt-devel%{?_isa}
 BuildRequires:  libmemcached-devel%{?_isa}
