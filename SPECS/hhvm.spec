@@ -42,6 +42,7 @@ BuildRequires:  pigz%{?_isa}
 BuildRequires:  svn%{?_isa}
 BuildRequires:  tbb-devel%{?_isa}
 BuildRequires:  wget%{?_isa}
+Requires:       glog%{?_isa}
 
 %description
 PHP is an HTML-embedded scripting language. PHP attempts to make it
@@ -62,7 +63,6 @@ make %{?_smp_mflags}
 
 
 %install
-rm -rf %{buildroot}
 %make_install
 
 
@@ -76,5 +76,5 @@ ctest
 
 
 %changelog
-* Mon Apr 28 2014 Renich Bon Ciric <renich@woralelandia.com>
-- first build 
+* Mon Apr 28 2014 Renich Bon Ciric <renich@woralelandia.com> - 2.3.1-1
+- Initial package build.
