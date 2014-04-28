@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+cd ~/rpmbuild
+
+# obtener fuentes (solo una vez; o cuando cambiemos de versión)
+# cd SOURCES
+# spectool -g ../SPECS/hhvm.spec
+# cd ..
+
+# generar SRPM
+rpmbuild -bs SPECS/hhvm.spec
+
+# probar el build
+mock --resultdir results/ --rebuild SRPMS/hhvm-2.3.1-1.fc20.src.rpm
+
+# alternativamente, corre los dos en una línea
+# rpmbuild -bs SPECS/hhvm.spec; mock --resultdir results/ --rebuild SRPMS/hhvm-2.3.1-1.fc20.src.rpm
+
+exit 0

@@ -46,12 +46,8 @@ BuildRequires:  wget%{?_isa}
 Requires:       glog%{?_isa}
 
 %description
-PHP is an HTML-embedded scripting language. PHP attempts to make it
-easy for developers to write dynamically generated web pages. PHP also
-offers built-in database integration for several commercial and
-non-commercial database management systems, so writing a
-database-enabled webpage with PHP is fairly simple. The most common
-use of PHP coding is probably as a replacement for CGI scripts.
+HHVM is an open-source virtual machine designed for executing programs written in Hack and PHP. HHVM uses a just-in-time (JIT)
+compilation approach to achieve superior performance while maintaining the development flexibility that PHP provides.
 
 
 %prep
