@@ -1,7 +1,8 @@
 ===============
 fedora-packages
 ===============
+---------------------------
+My own fedora packager repo
+---------------------------
 
----------------------------------------------------------------------
-My own fedora packager repo for spec files, patches and build scripts
----------------------------------------------------------------------
+For spec files, patches and build scripts.
