@@ -66,6 +66,10 @@ make %{?_smp_mflags}
 %make_install
 
 
+%post -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
+
+
 %check
 ctest
 
