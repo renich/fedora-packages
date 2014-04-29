@@ -15,10 +15,12 @@ BuildRequires:  ImageMagick-devel%{?_isa}
 BuildRequires:  binutils-devel%{?_isa}
 BuildRequires:  boost-devel%{?_isa}
 BuildRequires:  bzip2-devel%{?_isa}
+BuildRequires:  chrpath%{?_isa}
 BuildRequires:  cmake%{?_isa}
 BuildRequires:  elfutils-libelf-devel%{?_isa}
 BuildRequires:  expat-devel%{?_isa}
 BuildRequires:  gd-devel%{?_isa}
+BuildRequires:  glog-devel%{?_isa}
 BuildRequires:  jemalloc-devel%{?_isa}
 BuildRequires:  libc-client%{?_isa}
 BuildRequires:  libcap-devel%{?_isa}
@@ -39,11 +41,11 @@ BuildRequires:  oniguruma-devel%{?_isa}
 BuildRequires:  openldap-devel%{?_isa}
 BuildRequires:  pam-devel%{?_isa}
 BuildRequires:  pcre-devel%{?_isa}
-BuildRequires:  pigz%{?_isa}
+BuildRequires:  readline-devel%{?_isa}
 BuildRequires:  tbb-devel%{?_isa}
 BuildRequires:  uw-imap-devel%{?_isa}
 BuildRequires:  wget%{?_isa}
-Requires:       glog%{?_isa}
+BuildRequires:  libnotify-devel%{?_isa}
 
 %description
 HHVM is an open-source virtual machine designed for executing programs written in Hack and PHP. HHVM uses a just-in-time (JIT)
