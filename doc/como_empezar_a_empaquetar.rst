@@ -8,7 +8,7 @@ Guía práctica para empezar a empaquetar para Fedora
 :Autor:
     Renich Bon Ciric <renich@woralelandia.com>
 
-:Licencia: 
+:Licencia:
     FDL_ 1.3 o >
 
 :Versión:
@@ -29,9 +29,9 @@ Guía práctica para empezar a empaquetar para Fedora
 
 Descripción
 ===========
-En esta guía, te voy a ayudar a explorar como crear tus paquetes para Fedora. 
+En esta guía, te voy a ayudar a explorar como crear tus paquetes para Fedora.
 
-La idea es ayudarte a empezar rápido a empaquetar. Luego, vamos a ir con los detalles de los 
+La idea es ayudarte a empezar rápido a empaquetar. Luego, vamos a ir con los detalles de los
 `Lineamientos de Empaquetamiento de Fedora`_ y lo relacionado.
 
 Por lo pronto, manos a la obra.
@@ -45,7 +45,7 @@ muy bien familiarizados con el procedimiento de compilación manual. Por ejemplo
     * Saber si es estandard el procedimiento de compilación.
     * Estar en contacto con *upstream* y tenerle al tanto de nuestras intenciones; bugs y mejoras que pudiera tener el paquete.
 
-Una vez teniendo todo ésto, podemos comenzar a empaquetar algo. 
+Una vez teniendo todo ésto, podemos comenzar a empaquetar algo.
 
 Una vez que sabemos los detalles del paquete, debemos generar un archivo *spec* y proceder a la construcción del paquete.
 
@@ -93,12 +93,12 @@ Ahora, a lo que nos concierne. Vamos a consturir nuestro primer paquete.
     Source0:        http://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz
 
     BuildRequires: gettext
-          
+
     Requires(post): info
     Requires(preun): info
 
-    %description 
-    The "Hello World" program, done with all bells and whistles of a proper FOSS 
+    %description
+    The "Hello World" program, done with all bells and whistles of a proper FOSS
     project, including configuration, build, internationalization, help files, etc.
 
     %prep
@@ -145,12 +145,12 @@ Ahora, a lo que nos concierne. Vamos a consturir nuestro primer paquete.
     rpmlint ~/rpmbuild/{SRPMS,SPECS}/hello*
 
 .. note::
-    Es muy importante darnos cuenta de que los HowTos en la Wiki de Fedora; como en todos lados, están desactualizados. 
-    
-    En nuestro caso, podemos confiar en que los `Lineamientos de Empaquetamiento de Fedora`_ están actuales; mas los 
+    Es muy importante darnos cuenta de que los HowTos en la Wiki de Fedora; como en todos lados, están desactualizados.
+
+    En nuestro caso, podemos confiar en que los `Lineamientos de Empaquetamiento de Fedora`_ están actuales; mas los
     Howtos o ejemplos, no.
 
-    Es importante que consultemos con algún empaquetador experimentado, en el canal de IRC: #fedora-devel @ irc, o en 
+    Es importante que consultemos con algún empaquetador experimentado, en el canal de IRC: #fedora-devel @ irc, o en
     la lista de correo fedora-devel.
 
 .. raw:: pdf
@@ -165,7 +165,7 @@ Scripts
 -------
 Hay cosas que son tediosas y nos desenfocan. Por ejemplo, estar escribiendo comandos repetitivos una y otra vez.
 
-Por ésto, recomiendo que tengas una carpeta *~/rpmbuild/scripts*; en donde pondrás un script para facilitar tu trabajo. 
+Por ésto, recomiendo que tengas una carpeta *~/rpmbuild/scripts*; en donde pondrás un script para facilitar tu trabajo.
 
 Tengo un buen ejemplo de ésto en: https://github.com/renich/fedora-packages/blob/hhvm/scripts/build-hhvm
 
