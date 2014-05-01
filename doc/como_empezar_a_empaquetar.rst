@@ -133,6 +133,7 @@ Ahora, a lo que nos concierne. Vamos a consturir nuestro primer paquete.
     EOF
 
     # obtengamos la fuente
+    cd ~/rpmbuild/SOURCES
     spectool -g ~/rpmbuild/SPECS/hello.spec
 
     # generemos el SRPM
