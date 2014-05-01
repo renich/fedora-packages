@@ -140,6 +140,7 @@ Ahora, a lo que nos concierne. Vamos a consturir nuestro primer paquete.
     rpmbuild -bs ~/rpmbuild/SPECS/hello.spec
 
     # lo compilemos usando mock
+    cd ~/rpmbuild
     mock --results-dir ~/rpmbuild/results --rebuild SRPMS/hello-2.8-1.fc20.src.rpm
 
     # lo revisemos
