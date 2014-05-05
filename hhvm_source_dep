@@ -1,0 +1,50 @@
+Command
+grep '=/[a-zA-Z0-9_/.\-]*$' CMakeCache.txt | grep -v '/home' | cut -d'=' -f2 | sort | uniq | xargs rpm -q -f | sort | uniq 
+
+Dependencies
+binutils-2.23.88.0.1-13.fc20.x86_64 ->R
+binutils-devel-2.23.88.0.1-13.fc20.x86_64 ->B
+boost-devel-1.54.0-9.fc20.x86_64 ->B
+bzip2-devel-1.0.6-9.fc20.x86_64 ->B
+chrpath-0.13-13.fc20.x86_64 ->R
+cmake-2.8.12.2-2.fc20.x86_64 ->B
+coreutils-8.21-21.fc20.x86_64 ->X
+elfutils-libelf-devel-0.158-3.fc20.x86_64 ->B
+expat-devel-2.1.0-7.fc20.x86_64 ->B
+filesystem-3.2-19.fc20.x86_64 ->X
+freetype-devel-2.5.0-5.fc20.x86_64 ->B
+gawk-4.1.0-2.fc20.x86_64 ->X
+gcc-4.8.2-7.fc20.x86_64 ->B
+glibc-devel-2.18-12.fc20.x86_64 ->B
+glog-devel-0.3.3-3.fc20.x86_64 ->B
+ImageMagick-6.8.6.3-4.fc20.x86_64 ->R
+ImageMagick-devel-6.8.6.3-4.fc20.x86_64 ->B
+jemalloc-devel-3.6.0-1.fc20.x86_64 ->B
+libcap-devel-2.22-7.fc20.x86_64 ->B
+libcurl-devel-7.32.0-8.fc20.x86_64 ->B
+libdwarf-devel-20140131-2.fc20.x86_64 ->B
+libedit-devel-3.1-2.20130601cvs.fc20.x86_64 ->B
+libevent-devel-2.0.21-3.fc20.x86_64 ->B
+libicu-devel-50.1.2-10.fc20.x86_64 ->B
+libjpeg-turbo-devel-1.3.1-2.fc20.x86_64 ->B
+libmcrypt-devel-2.5.8-14.fc20.x86_64 ->B
+libmemcached-devel-1.0.16-2.fc20.x86_64 ->B
+libpng-devel-1.6.3-3.fc20.x86_64 ->B
+libxml2-2.9.1-2.fc20.x86_64 ->R
+libxml2-devel-2.9.1-2.fc20.x86_64 ->B
+libxslt-1.1.28-5.fc20.x86_64 ->R
+libxslt-devel-1.1.28-5.fc20.x86_64 ->B
+make-3.82-19.fc20.x86_64 ->X
+mariadb-devel-5.5.36-1.fc20.x86_64 ->B
+ocaml-4.00.1-3.fc20.x86_64 ->B
+oniguruma-devel-5.9.5-1.fc20.x86_64 ->B
+openldap-devel-2.4.39-2.fc20.x86_64 ->B
+openssl-devel-1.0.1e-37.fc20.1.x86_64 ->B
+pam-devel-1.1.8-1.fc20.x86_64 ->B
+pcre-devel-8.33-4.fc20.x86_64 ->B
+pkgconfig-0.28-3.fc20.x86_64 ->X
+readline-devel-6.2-8.fc20.x86_64 ->B
+tbb-devel-4.1-4.20130314.fc20.x86_64 ->B
+unixODBC-2.3.2-4.fc20.x86_64 ->R
+uw-imap-devel-2007f-5.fc20.x86_64 ->B
+zlib-devel-1.2.8-3.fc20.x86_64 ->B
