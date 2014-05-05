@@ -1,6 +1,3 @@
-Command
-grep '=/[a-zA-Z0-9_/.\-]*$' CMakeCache.txt | grep -v '/home' | cut -d'=' -f2 | sort | uniq | xargs rpm -q -f | sort | uniq 
-
 Dependencies
 binutils-2.23.88.0.1-13.fc20.x86_64 ->R
 binutils-devel-2.23.88.0.1-13.fc20.x86_64 ->B
