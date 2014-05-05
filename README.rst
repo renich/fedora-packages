@@ -1,8 +1,8 @@
 ===============
-fedora-packages
+n3tkv00/fedora-packages
 ===============
 ---------------------------
-My own fedora packager repo
+Fork of renich/fedora-packages
 ---------------------------
 
 For spec files, patches and build scripts.
