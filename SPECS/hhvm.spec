@@ -9,7 +9,7 @@ Summary:        HHVM virtual machine, runtime, and JIT for the PHP language
 
 License:        PHP and Zend and BSD
 URL:            http://www.hhvm.com/
-Source0:        https://github.com/facebook/hhvm/archive/%{name}-%{commit}.tar.gz
+Source0:        https://github.com/facebook/hhvm/archive/%{commit}/%{name}-%{commit}.tar.gz
 
 BuildRequires:	binutils-devel%{?_isa}
 BuildRequires:	boost-devel%{?_isa}
