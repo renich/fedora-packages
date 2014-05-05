@@ -1,0 +1,6 @@
+#!/bin/bash
+#Check the dependencies used based on a valid CMakeCache.txt file created in an outside configure
+#Run it in the root folder of the source code after running cmake in it
+
+grep '=/[a-zA-Z0-9_/.\-]*$' CMakeCache.txt | grep -v '/home' | cut -d'=' -f2 | sort | uniq | xargs rpm -q -f | sort | uniq 
+
