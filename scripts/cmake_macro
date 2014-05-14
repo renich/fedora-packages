@@ -1,0 +1,14 @@
+#!/bin/bash
+# This script can be used for manual runs of cmake build step. It can be used for troubleshooting install.
+
+#cmake options used by rmpbuild macro %cmake
+export CFLAGS="-O2 -g"
+export CXXFLAGS="-O2 -g"
+export FFLAGS="-O2 -g"
+export FCFLAGS="-O2 -g"
+export LDFLAGS="-Wl,-z,relro -specs=/usr/lib/rpm/redhat/redhat-hardened-ld"
+#export LDFLAGS="-Wl,-z,relro -pie -z now"
+#export LDFLAGS="-Wl,-z,relro -z now"
+
+# $@ addes to provide custom parameters to the macro
+/usr/bin/cmake -DCMAKE_C_FLAGS_RELEASE:STRING=-DNDEBUG -DCMAKE_CXX_FLAGS_RELEASE:STRING=-DNDEBUG -DCMAKE_Fortran_FLAGS_RELEASE:STRING=-DNDEBUG -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DCMAKE_INSTALL_PREFIX:PATH=/usr -DINCLUDE_INSTALL_DIR:PATH=/usr/include -DLIB_INSTALL_DIR:PATH=/usr/lib64 -DSYSCONF_INSTALL_DIR:PATH=/etc -DSHARE_INSTALL_PREFIX:PATH=/usr/share -DLIB_SUFFIX=64 -DBUILD_SHARED_LIBS:BOOL=ON $@ .
