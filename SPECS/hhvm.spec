@@ -2,10 +2,6 @@
 %global hhvm-commit 1da451b79f40686de6472d23cf90fdd09fa4dc23
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
-# folly
-%global folly-commit b215baa25240dc038c53c6b9b333dc040ada8d59
-%global shortcommit %(c=%{commit}; echo ${c:0:7})
-
 # hardened build
 %global _hardened_build 1
 
