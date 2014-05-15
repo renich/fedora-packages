@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # vars
-version='1.0.7'
-revision='1'
+version=$( grep 'Version:' SPECS/bitwig-studio.spec | egrep -o '[[:digit:]].*$' )
+revision=$( grep 'Release:' SPECS/bitwig-studio.spec | egrep -o '[[:digit:]]{1,}' )
 
 # Get in there and put the spec file in SPEC (one line)
 #curl -k https://downloads.woralelandia.com/fedora/20/bitwig-studio/bitwig-studio.spec > ~/rpmbuild/SPECS/bitwig-studio.spec
