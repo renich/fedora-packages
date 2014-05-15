@@ -1,5 +1,12 @@
-%global commit 1da451b79f40686de6472d23cf90fdd09fa4dc23
+# hhvm
+%global hhvm-commit 1da451b79f40686de6472d23cf90fdd09fa4dc23
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
+
+# folly
+%global folly-commit b215baa25240dc038c53c6b9b333dc040ada8d59
+%global shortcommit %(c=%{commit}; echo ${c:0:7})
+
+# hardened build
 %global _hardened_build 1
 
 Name:           hhvm
@@ -9,7 +16,8 @@ Summary:        HHVM virtual machine, runtime, and JIT for the PHP language
 
 License:        PHP and Zend and BSD
 URL:            http://www.hhvm.com/
-Source0:        https://github.com/facebook/hhvm/archive/%{commit}/%{name}-%{commit}.tar.gz
+Source0:        https://github.com/facebook/hhvm/archive/%{hhvm-commit}/%{name}-%{hhvm-commit}.tar.gz
+Source1:        https://github.com/facebook/folly/archive/%{folly-commit}/%{name}-%{folly-commit}.tar.gz
 
 BuildRequires:	binutils-devel%{?_isa}
 BuildRequires:	boost-devel%{?_isa}
@@ -62,7 +70,7 @@ compilation approach to achieve superior performance while maintaining the devel
 
 
 %prep
-%setup -qn %{name}-%{commit}
+%setup -qn %{name}-%{hhvm-commit}
 
 
 %build
