@@ -13,6 +13,8 @@ Summary:        A simple TCP connection balancer made with scalability and perfo
 License:        GPLv2
 URL:            https://github.com/codership/%{name}
 Source0:        https://github.com/codership/%{name}/archive/%{commit}/%{name}-%{commit}.tar.gz
+Source1:        glbd.sysconfig
+#Source2:        glb.command
 
 BuildRequires:  libtool%{?_isa}
 
@@ -21,20 +23,21 @@ A simple TCP connection balancer made with scalability and performance in mind. 
 functionality is limited only to balancing generic TCP connections.
 
 Features:
-* list of backend servers is configurable in runtime.
-* supports server "draining", i.e. does not allocate new connections to server, but does not kill existing ones, waiting for them to end gracefully.
-* can use epoll API provided by Linux version 2.6 and higher for ultimate routing performance.
-* glbd is multithreaded, so it can utilize multiple CPU cores. Also, if your OS does not support epoll API, consider using several threads even on a single core machine as it will lessen poll() overhead proportionally and can improve overall performance by a factor of 2 or more.
-* optional watchdog module can monitor destinations and adjust routing table automatically.
+	* list of backend servers is configurable in runtime.  supports server "draining", i.e. does not allocate new connections to
+	* server, but does not kill existing ones, waiting for them 
+	  to end gracefully.
+	* can use epoll API provided by Linux version 2.6 and higher for ultimate routing performance.  glbd is multithreaded, so it can
+	* utilize multiple CPU cores. Also, if your OS does not support epoll API, consider using several threads even on a single core
+	* machine as it will lessen poll() overhead proportionally and can improve overall performance by
+	  a factor of 2 or more.
+	* optional watchdog module can monitor destinations and adjust routing table automatically.
 
 
-%package libglb
+%package devel
 Summary:    provides 0-effort connection balancing to any Linux application that uses standard libc connect().
 
-%description libglb
-A shared library that provides 0-effort connection balancing to any Linux application that uses standard libc connect()
-call by overloading that function in runtime. No other program functionality is affected and no program modification or
-recompilation is needed. See below for details.
+%description devel
+Development libraries provided by glb.
 
 
 %prep
@@ -48,13 +51,19 @@ make %{?_smp_mflags}
 
 
 %install
-rm -rf %{buildroot}
 %make_install
+install -p -D -m 0640 %{SOURCE1} %{buildroot}/%{_sysconfdir}/sysconfig/glbd
+#install -p -D -m 0770 %{SOURCE2} %{buildroot}/%{_sbindir}/glb
+
+
+%post -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 
 %files
 %doc README COPYING ChangeLog
 %{_sbindir}/glbd
+%config(noreplace) %{_sysconfdir}/sysconfig/glbd
 
 %files libglb
 %doc README COPYING ChangeLog
