@@ -27,7 +27,12 @@ Features:
 * glbd is multithreaded, so it can utilize multiple CPU cores. Also, if your OS does not support epoll API, consider using several threads even on a single core machine as it will lessen poll() overhead proportionally and can improve overall performance by a factor of 2 or more.
 * optional watchdog module can monitor destinations and adjust routing table automatically.
 
-libglb is a shared library that provides 0-effort connection balancing to any Linux application that uses standard libc connect()
+
+%package libglb
+Summary:    provides 0-effort connection balancing to any Linux application that uses standard libc connect().
+
+%description libglb
+A shared library that provides 0-effort connection balancing to any Linux application that uses standard libc connect()
 call by overloading that function in runtime. No other program functionality is affected and no program modification or
 recompilation is needed. See below for details.
 
@@ -38,7 +43,7 @@ recompilation is needed. See below for details.
 
 %build
 ./bootstrap.sh
-%configure
+%configure --disable-static
 make %{?_smp_mflags}
 
 
@@ -48,7 +53,13 @@ rm -rf %{buildroot}
 
 
 %files
-%doc
+%doc README COPYING ChangeLog
+%{_sbindir}/glbd
+
+%files libglb
+%doc README COPYING ChangeLog
+%exclude %{_libdir}/*.la
+%{_libdir}/*
 
 
 %changelog
