@@ -61,11 +61,10 @@ install -p -D -m 0640 %{SOURCE1} %{buildroot}/%{_sysconfdir}/sysconfig/glbd
 
 
 %files
-%doc README COPYING ChangeLog
 %{_sbindir}/glbd
 %config(noreplace) %{_sysconfdir}/sysconfig/glbd
 
-%files libglb
+%files devel
 %doc README COPYING ChangeLog
 %exclude %{_libdir}/*.la
 %{_libdir}/*
