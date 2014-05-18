@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# vars
+project='glb'
+version=$( grep 'Version:' SPECS/${project}.spec | egrep -o '([[:digit:]].+)' )
+release=$( grep 'Release:' SPECS/${project}.spec | egrep -o '([[:digit:]]+)' )
+
+cd ~/rpmbuild
+
+# get sources
+# note: spectool is smart and it will skip successful downloads.
+cd SOURCES
+spectool -g ../SPECS/${project}.spec
+cd ..
+
+# generate SRPM
+rpmbuild -bs SPECS/${project}.spec
+
+# try to build
+mock --resultdir results/ --rebuild SRPMS/${project}-${version}-${release}.fc20.src.rpm
+
+exit 0
