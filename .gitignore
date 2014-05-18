@@ -1,6 +1,8 @@
+!SOURCES/*.command
+!SOURCES/*.config
+!SOURCES/*.init
 !SOURCES/*.patch
-BUILD*/
-SRPMS/*
-RPMS/*
-SOURCES/*
-results/*
+!SOURCES/*.sysconfig
+!SPECS/*.spec
+!scripts/*
+*
