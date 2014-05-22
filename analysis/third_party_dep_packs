@@ -1,0 +1,37 @@
+libafdt ------------------------------------------
+Needs to be packaged for Fedora. 
+URL: http://sourceforge.net/projects/libafdt/files/libafdt-0.1.0.tar.gz/download
+libmbfl ------------------------------------------
+Library provided by
+php-devel.x86_64                         5.5.12-1.fc20                    updates
+The files in the folder are different from the php lib files. Probably it is needed to repackage or use the files from hhvm
+libsqlite3 ------------------------------------------
+Available Packages
+libsqlite3x-devel.x86_64                 20071018-14.fc20                 fedora
+No changes from original package
+timelib ------------------------------------------
+Library provided by
+php-devel.x86_64                         5.5.12-1.fc20                    updates
+The files in the folder are different from the php lib files. Probably it is needed to repackage or use the files from hhvm
+lz4 ------------------------------------------
+Available Packages
+lz4-devel.x86_64                       r116-1.fc20                       updates
+The folder has the source C files. Fedora package has compiled libraries.
+double-conversion ------------------------------------------
+Available Packages. 
+double-conversion-devel.x86_64               2.0.1-1.fc20                updates
+No changes from original package
+folly ------------------------------------------
+Needs to be packaged for Fedora. 
+URL: https://github.com/facebook/folly
+libzip ------------------------------------------
+Available Packages
+libzip-devel.x86_64                    0.11.2-1.fc20                     updates
+The folder has the source C files. Fedora package has compiled libraries.
+ti ------------------------------------------
+Needs to be packaged for Fedora
+URL: https://github.com/hhvm/hhvm-third-party/tree/master/ti
+thrift ------------------------------------------
+Available Packages
+thrift-devel.x86_64                    0.9.1-10.fc20                     updates
+The folder has the source C files. Fedora package has compiled libraries.
