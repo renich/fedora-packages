@@ -70,7 +70,6 @@ compilation approach to achieve superior performance while maintaining the devel
 
 
 %build
-LDFLAGS="-Wl,-z,relro -z now"
 %cmake .
 make %{?_smp_mflags}
 
@@ -93,6 +92,8 @@ ctest
 
 
 %changelog
+* Wed May 21 2014 Francisco Garibaldi <francisco.garibaldi@gmail.com> - 3.0.1-1
+- Removed LDFLAGS definition. hhvm upstream has included our addition to support fedora standard packaging standards.
 * Sun May 04 2014 Francisco Garibaldi <francisco.garibaldi@gmail.com> - 3.0.1-1
 - Correction of LDFLAGS to prevent creation of Possition Independent Executables. Correct compilation problem with LibEvent test
 - Correction of version of hhvm used
