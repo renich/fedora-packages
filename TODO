@@ -1,2 +1,3 @@
-# mon abr 28 18:54:29 CDT 2014 
-- talk to ptarjan about the build on #hhvm @ freenode
+# wed jun 18 07:33:37 CDT 2014
+- pack folly: https://github.com/facebook/folly
+- pack third-party: https://github.com/hhvm/hhvm-third-party
