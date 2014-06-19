@@ -1,0 +1,54 @@
+diff -ur ../compute-image-packages-2582dfef02e559d7accb7200987910950e74b747.orig/google-daemon/etc/init/google-accounts-manager-service.conf ./google-daemon/etc/init/google-accounts-manager-service.conf
+--- ../compute-image-packages-2582dfef02e559d7accb7200987910950e74b747.orig/google-daemon/etc/init/google-accounts-manager-service.conf	2014-05-08 18:24:13.000000000 +0000
++++ ./google-daemon/etc/init/google-accounts-manager-service.conf	2014-06-19 07:49:40.126762314 +0000
+@@ -7,4 +7,4 @@
+ stop on (stopping ssh or stopping sshd)
+ respawn
+ 
+-exec /usr/share/google/google_daemon/manage_accounts.py
++exec /usr/share/google_daemon/manage_accounts.py
+diff -ur ../compute-image-packages-2582dfef02e559d7accb7200987910950e74b747.orig/google-daemon/etc/init/google-accounts-manager-task.conf ./google-daemon/etc/init/google-accounts-manager-task.conf
+--- ../compute-image-packages-2582dfef02e559d7accb7200987910950e74b747.orig/google-daemon/etc/init/google-accounts-manager-task.conf	2014-05-08 18:24:13.000000000 +0000
++++ ./google-daemon/etc/init/google-accounts-manager-task.conf	2014-06-19 07:49:51.604762405 +0000
+@@ -6,7 +6,7 @@
+ 
+ script
+   # One-shot run prior to daemonizing (in a different upstart job config file).
+-  /usr/share/google/google_daemon/manage_accounts.py --single-pass
++  /usr/share/google_daemon/manage_accounts.py --single-pass
+ 
+   # In case of power outage or hard reboot, ensure that SSH keys have been
+   # written to disk before starting the daemon. At this point the other
+diff -ur ../compute-image-packages-2582dfef02e559d7accb7200987910950e74b747.orig/google-daemon/etc/init/google-address-manager.conf ./google-daemon/etc/init/google-address-manager.conf
+--- ../compute-image-packages-2582dfef02e559d7accb7200987910950e74b747.orig/google-daemon/etc/init/google-address-manager.conf	2014-05-08 18:24:13.000000000 +0000
++++ ./google-daemon/etc/init/google-address-manager.conf	2014-06-19 07:50:00.335762494 +0000
+@@ -2,4 +2,4 @@
+ start on google-rc-local-has-run
+ 
+ respawn
+-exec /usr/share/google/google_daemon/manage_addresses.py
++exec /usr/share/google_daemon/manage_addresses.py
+diff -ur ../compute-image-packages-2582dfef02e559d7accb7200987910950e74b747.orig/google-daemon/usr/lib/systemd/system/google-accounts-manager.service ./google-daemon/usr/lib/systemd/system/google-accounts-manager.service
+--- ../compute-image-packages-2582dfef02e559d7accb7200987910950e74b747.orig/google-daemon/usr/lib/systemd/system/google-accounts-manager.service	2014-05-08 18:24:13.000000000 +0000
++++ ./google-daemon/usr/lib/systemd/system/google-accounts-manager.service	2014-06-19 07:51:12.523767527 +0000
+@@ -6,7 +6,7 @@
+ 
+ [Service]
+ Type=simple
+-ExecStart=/usr/share/google/google_daemon/manage_accounts.py
++ExecStart=/usr/share/google_daemon/manage_accounts.py
+ 
+ [Install]
+ WantedBy=multi-user.target
+diff -ur ../compute-image-packages-2582dfef02e559d7accb7200987910950e74b747.orig/google-daemon/usr/lib/systemd/system/google-address-manager.service ./google-daemon/usr/lib/systemd/system/google-address-manager.service
+--- ../compute-image-packages-2582dfef02e559d7accb7200987910950e74b747.orig/google-daemon/usr/lib/systemd/system/google-address-manager.service	2014-05-08 18:24:13.000000000 +0000
++++ ./google-daemon/usr/lib/systemd/system/google-address-manager.service	2014-06-19 07:51:27.069765987 +0000
+@@ -5,7 +5,7 @@
+ 
+ [Service]
+ Type=simple
+-ExecStart=/usr/share/google/google_daemon/manage_addresses.py
++ExecStart=/usr/share/google_daemon/manage_addresses.py
+ 
+ [Install]
+ WantedBy=multi-user.target

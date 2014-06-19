@@ -3,12 +3,13 @@
 
 Name:               google-daemon
 Version:            1.1.3
-Release:            1%{?dist}
+Release:            2%{?dist}
 Summary:            A daemon required for VM integration
 
 License:            ASL 2.0
 URL:                https://github.com/GoogleCloudPlatform/compute-image-packages/tree/master/%{name}
 Source0:            https://github.com/GoogleCloudPlatform/compute-image-packages/archive/%{project_commit}/%{name}-%{project_commit}.tar.gz
+Patch0:             20140619-google-daemon-fix_datadir_path_on_config_and_systemd.patch
 
 BuildArch:          noarch
 Requires(post):     systemd
@@ -29,7 +30,7 @@ This package is part of the compute-image-packages
 
 
 %prep
-%setup -qn compute-image-packages-%{project_commit}
+%autosetup -p1 -n compute-image-packages-%{project_commit}
 
 # remove unneeded files
 rm %{name}/README.md
@@ -81,6 +82,9 @@ rsync -a %{name}/ %{buildroot}/
 
 
 %changelog
+* Thu Jun 19 2014 renich@woralelandia.com - 1.1.3-2
+- fix config and systemd path to datadir
+
 * Thu Jun 19 2014 renich@woralelandia.com - 1.1.3-1
 - First build
 
