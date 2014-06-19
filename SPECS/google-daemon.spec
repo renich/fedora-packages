@@ -3,7 +3,7 @@
 
 Name:               google-daemon
 Version:            1.1.3
-Release:            2%{?dist}
+Release:            3%{?dist}
 Summary:            A daemon required for VM integration
 
 License:            ASL 2.0
@@ -34,14 +34,13 @@ This package is part of the compute-image-packages
 
 # remove unneeded files
 rm %{name}/README.md
+rm -fr %{name}/%{_sysconfdir}/init
 rm -fr %{name}/%{_sysconfdir}/init.d
 
 # fix google_daemon location
 mv %{name}%{_datadir}/google/google_daemon %{name}%{_datadir}/google_daemon
 rmdir %{name}%{_datadir}/google
 
-# move init to sysconfig
-mv %{name}%{_sysconfdir}/init %{name}%{_sysconfdir}/sysconfig
 
 
 %build
@@ -68,9 +67,6 @@ rsync -a %{name}/ %{buildroot}/
 %doc LICENSE
 %config %{_unitdir}/google-address-manager.service
 %config %{_unitdir}/google-accounts-manager.service
-%config(noreplace) %{_sysconfdir}/sysconfig/google-accounts-manager-service.conf
-%config(noreplace) %{_sysconfdir}/sysconfig/google-accounts-manager-task.conf
-%config(noreplace) %{_sysconfdir}/sysconfig/google-address-manager.conf
 %{_datadir}/google_daemon/accounts_manager_daemon.py
 %{_datadir}/google_daemon/address_manager.py
 %{_datadir}/google_daemon/utils.py
@@ -82,6 +78,9 @@ rsync -a %{name}/ %{buildroot}/
 
 
 %changelog
+* Thu Jun 19 2014 renich@woralelandia.com - 1.1.3-3
+- removed /etc/init files for good
+
 * Thu Jun 19 2014 renich@woralelandia.com - 1.1.3-2
 - fix config and systemd path to datadir
 
