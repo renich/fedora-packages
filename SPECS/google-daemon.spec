@@ -1,9 +1,9 @@
-%global project_commit 2582dfef02e559d7accb7200987910950e74b747
+%global project_commit 2a5ae7492f0172fb4e305c2d556866c35ecee258
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 Name:               google-daemon
 Version:            1.1.3
-Release:            3%{?dist}
+Release:            4%{?dist}
 Summary:            A daemon required for VM integration
 
 License:            ASL 2.0
@@ -78,6 +78,10 @@ rsync -a %{name}/ %{buildroot}/
 
 
 %changelog
+* Thu Jun 19 2014 renich@woralelandia.com - 1.1.3-4
+- updated source to commit: 2a5ae7492f0172fb4e305c2d556866c35ecee258
+- fixes the issue where last user's ssh keys linger
+
 * Thu Jun 19 2014 renich@woralelandia.com - 1.1.3-3
 - removed /etc/init files for good
 

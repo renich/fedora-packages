@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+shopt -s extglob
 
 # vars
 project='google-daemon'
@@ -9,9 +10,11 @@ cd ~/rpmbuild
 
 # cleanup
 rm -fr results
+rm -f SOURCES/!(*.patch)
+rm -f SRPMS/*
 
 # get sources
-# note: spectool is smart and it will skip successful downloads.
+# note: spectool is smart and it will skip successful downloads only if you do not clean them up (above).
 cd SOURCES
 spectool -g ../SPECS/${project}.spec
 cd ..
