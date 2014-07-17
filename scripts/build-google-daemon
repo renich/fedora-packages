@@ -2,7 +2,7 @@
 shopt -s extglob
 
 # vars
-project='google-daemon'
+project='google-compute-daemon'
 version=$( grep 'Version:' SPECS/${project}.spec | egrep -o '([[:digit:]].+)' )
 release=$( grep 'Release:' SPECS/${project}.spec | egrep -o '([[:digit:]]+)' )
 
