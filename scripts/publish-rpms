@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+cp ~/rpmbuild/SPECS/*.spec /srv/www/html/default/public/fedora/
+cp ~/rpmbuild/results/*.rpm /srv/www/html/default/public/fedora/
+
+exit 0
