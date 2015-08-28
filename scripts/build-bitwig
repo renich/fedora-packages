@@ -19,6 +19,6 @@ rpmbuild -bs SPECS/bitwig-studio.spec || exit 2
 mock --resultdir results/ --rebuild SRPMS/bitwig-studio-${version}-${revision}.fc20.src.rpm || exit 3
 
 # Install your RPM
-sudo yum install ~/rpmbuild/results/bitwig-studio-${version}-${revision}.fc20.x86_64.rpm
+sudo dnf install ~/rpmbuild/results/bitwig-studio-${version}-${revision}.fc20.x86_64.rpm
 
 exit 0
