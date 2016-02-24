@@ -1,14 +1,16 @@
-Name: 			bitwig-studio
-Version: 		1.0.8
-Release: 		1%{?dist}
-Summary: 		A dynamic software solution for music creation and performance to realize all of your musical ideas in every stage of production.
+%global _beta_version %{version}-BETA-%{release}
 
-License: 		EULA
-URL: 			http://www.bitwig.com/
-Source0: 		http://packs.bitwig.com/downloads/%{name}-%{version}.deb
+Name:           bitwig-studio
+Version:        1.3.6
+Release:        1%{?dist}
+Summary:        A dynamic software solution for music creation and performance to realize all of your musical ideas in every stage of production.
 
-BuildRequires: 	dpkg
-Requires:		xcb-util-wm
+License:        EULA
+URL:            http://www.bitwig.com/
+Source0:        http://downloads.bitwig.com/%{name}-%{version}.deb
+
+BuildRequires:  dpkg
+Requires:       xcb-util-wm
 
 
 %global __requires_exclude_from ^(/opt/bitwig-studio/bin/.*\\.so|/opt/bitwig-studio/bin/jre/lib/amd64/headless/.*\\.so|/opt/bitwig-studio/bin/jre/lib/amd64/jli/.*\\.so|/opt/bitwig-studio/bin/jre/lib/amd64/server/.*\\.so|/opt/bitwig-studio/bin/jre/lib/amd64/.*\\.so|/opt/bitwig-studio/bin/jre/lib/amd64/xawt/.*\\.so|/opt/bitwig-studio/bin/vamp-plugins/.*\\.so)$
@@ -41,22 +43,63 @@ software for Windows, Mac OS X, and Linux.
 %install
 dpkg -x %{_sourcedir}/%{name}-%{version}.deb %{buildroot}
 
+# put things into place
+mkdir -m 755 -p %{buildroot}/usr/local/{bin,share}
+#mv %{buildroot}/usr/bin %{buildroot}/usr/local/
+mv %{buildroot}/usr/share %{buildroot}/usr/local/
+#mv %{buildroot}/usr/local/share/icons/gnome %{buildroot}/usr/local/share/icons/hicolor
+
+
+%post
+touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
+
+
+%postun
+if [ $1 -eq 0 ] ; then
+    touch --no-create %{_datadir}/icons/hicolor &>/dev/null
+    gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
+fi
+
+
+%posttrans
+gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
+
 
 %files
 /opt/bitwig-studio
+#"/usr/local/share/icons/hicolor/48x48/apps/Bitwig Studio.png"
 /usr/bin/bitwig-studio
-/usr/share/applications/bitwig-studio.desktop
-/usr/share/icons/gnome/48x48/apps/bitwig-studio.png
-/usr/share/icons/gnome/scalable/apps/bitwig-studio.svg
-/usr/share/icons/gnome/scalable/mimetypes/application-bitwig-clip.svg
-/usr/share/icons/gnome/scalable/mimetypes/application-bitwig-preset.svg
-/usr/share/icons/gnome/scalable/mimetypes/application-bitwig-project.svg
-/usr/share/icons/gnome/scalable/mimetypes/application-bitwig-device.svg
-/usr/share/icons/gnome/scalable/mimetypes/application-bitwig-project-folder.svg
-/usr/share/mime/packages/bitwig-studio.xml
+/usr/local/share/applications/bitwig-studio.desktop
+/usr/local/share/icons/hicolor/48x48/apps/bitwig-modular.png
+/usr/local/share/icons/hicolor/48x48/apps/bitwig-studio.png
+/usr/local/share/icons/hicolor/scalable/apps/bitwig-modular.sh
+/usr/local/share/icons/hicolor/scalable/apps/bitwig-studio.svg
+/usr/local/share/icons/hicolor/scalable/mimetypes/application-bitwig-clip.svg
+/usr/local/share/icons/hicolor/scalable/mimetypes/application-bitwig-device.svg
+/usr/local/share/icons/hicolor/scalable/mimetypes/application-bitwig-preset.svg
+/usr/local/share/icons/hicolor/scalable/mimetypes/application-bitwig-project-folder.svg
+/usr/local/share/icons/hicolor/scalable/mimetypes/application-bitwig-project.svg
+/usr/local/share/mime/packages/bitwig-studio.xml
 
 
 %changelog
+* Tue Feb 23 2016 Renich Bon Ciric - 1.3.6-1
+* updated to 1.3.6
+
+* Fri May 22 2015 Renich Bon Ciric - 1.1.8-1
+- updated to 1.0.18
+
+* Tue Oct 14 2014 Renich Bon Ciric <renich@woralelandia.com - 1.0.15-1
+- updated to 1.0.15
+- updated source url
+
+* Tue Sep 16 2014 Renich Bon Ciric <renich@woralelandia.com> - 1.0.14-1
+- updated to 1.0.14
+
+* Sat Sep 13 2014 Renich Bon Ciric <renich@woralelandia.com> - 1.0.13-2
+- updated to 1.0.13
+- moved all files to /usr/local
+
 * Thu Apr 10 2014 Renich Bon Ciric <renich@woralelandia.com> - 1.0.6-1
 - Updated to version 1.0.6
 

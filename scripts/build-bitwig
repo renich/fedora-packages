@@ -3,6 +3,7 @@
 # vars
 version=$( grep 'Version:' SPECS/bitwig-studio.spec | egrep -o '[[:digit:]].*$' )
 revision=$( grep 'Release:' SPECS/bitwig-studio.spec | egrep -o '[[:digit:]]{1,}' )
+fedora_version=23
 
 # Get in there and put the spec file in SPEC (one line)
 #curl -k https://downloads.woralelandia.com/fedora/20/bitwig-studio/bitwig-studio.spec > ~/rpmbuild/SPECS/bitwig-studio.spec
@@ -16,9 +17,9 @@ cd ~/rpmbuild
 rpmbuild -bs SPECS/bitwig-studio.spec || exit 2
 
 # Start building (one line)
-mock --resultdir results/ --rebuild SRPMS/bitwig-studio-${version}-${revision}.fc20.src.rpm || exit 3
+mock --resultdir results/ --rebuild SRPMS/bitwig-studio-${version}-${revision}.fc${fedora_version}.src.rpm || exit 3
 
 # Install your RPM
-sudo yum install ~/rpmbuild/results/bitwig-studio-${version}-${revision}.fc20.x86_64.rpm
+#sudo yum install ~/rpmbuild/results/bitwig-studio-${version}-${revision}.fc${fedora_version}.x86_64.rpm
 
 exit 0
