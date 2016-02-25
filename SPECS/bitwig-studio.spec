@@ -1,4 +1,5 @@
 %global _beta_version %{version}-BETA-%{release}
+%global __requires_exclude_from ^(/opt/bitwig-studio/bin/.*\\.so|/opt/bitwig-studio/bin/jre/lib/amd64/headless/.*\\.so|/opt/bitwig-studio/bin/jre/lib/amd64/jli/.*\\.so|/opt/bitwig-studio/bin/jre/lib/amd64/server/.*\\.so|/opt/bitwig-studio/bin/jre/lib/amd64/.*\\.so|/opt/bitwig-studio/bin/jre/lib/amd64/xawt/.*\\.so|/opt/bitwig-studio/bin/vamp-plugins/.*\\.so)$
 
 Name:           bitwig-studio
 Version:        1.3.6
@@ -11,9 +12,6 @@ Source0:        http://downloads.bitwig.com/%{name}-%{version}.deb
 
 BuildRequires:  dpkg
 Requires:       xcb-util-wm
-
-
-%global __requires_exclude_from ^(/opt/bitwig-studio/bin/.*\\.so|/opt/bitwig-studio/bin/jre/lib/amd64/headless/.*\\.so|/opt/bitwig-studio/bin/jre/lib/amd64/jli/.*\\.so|/opt/bitwig-studio/bin/jre/lib/amd64/server/.*\\.so|/opt/bitwig-studio/bin/jre/lib/amd64/.*\\.so|/opt/bitwig-studio/bin/jre/lib/amd64/xawt/.*\\.so|/opt/bitwig-studio/bin/vamp-plugins/.*\\.so)$
 
 
 %description 
@@ -45,9 +43,7 @@ dpkg -x %{_sourcedir}/%{name}-%{version}.deb %{buildroot}
 
 # put things into place
 mkdir -m 755 -p %{buildroot}/usr/local/{bin,share}
-#mv %{buildroot}/usr/bin %{buildroot}/usr/local/
 mv %{buildroot}/usr/share %{buildroot}/usr/local/
-#mv %{buildroot}/usr/local/share/icons/gnome %{buildroot}/usr/local/share/icons/hicolor
 
 
 %post
@@ -67,7 +63,6 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 %files
 /opt/bitwig-studio
-#"/usr/local/share/icons/hicolor/48x48/apps/Bitwig Studio.png"
 /usr/bin/bitwig-studio
 /usr/local/share/applications/bitwig-studio.desktop
 /usr/local/share/icons/hicolor/48x48/apps/bitwig-modular.png
